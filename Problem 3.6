@@ -1,0 +1,26 @@
+function car2pol = cartesia(x,y);
+%problem 3.6 
+x = input('Insert x value: ');
+y = input('Insert y value: ');
+r = sqrt((x^2)+(y^2));  
+
+if (x>0) & ((y>=0 || y<=0))
+    theta = rad2deg((tan(y/x))^-1);
+elseif (x<0) & (y>0)
+    theta = rad2deg(((tan(y/x))^-1)+pi);
+elseif (x<0) & (y<0)
+    theta = rad2deg(((tan(y/x))^-1)-pi);
+elseif (x<0) & (y==0)
+    theta = rad2deg(pi);
+elseif (x==0) & (y>0)
+    theta = rad2deg(pi/2); 
+elseif (x==0) & (y<0)
+    theta = rad2deg(-1*pi*2);
+elseif (x==0) & (y==0)
+    theta = rad2deg(0);
+else 
+    theta = 65;
+end 
+    
+fprintf('        x             y           r        theta \n')
+fprintf('    %8.4f     %8.4f      %8.4f   %8.4f  \n', x, y, r, theta)
